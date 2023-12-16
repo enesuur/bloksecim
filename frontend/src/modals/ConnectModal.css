@@ -1,0 +1,91 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(26, 23, 21, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background-color: var(--background-color);
+    width: 512px;
+    height: 256px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .modal-header p {
+    font-size: 1.5rem;
+    margin-right: 8px;
+    margin-top: 8px;
+    margin-bottom: 0;
+    padding: 12px;
+    color: black;
+  }
+
+  .modal-body {
+    display: inline-block;
+  }
+
+  .modal-header p:hover{
+    cursor: pointer;
+  }
+
+  .modal-body .metamask-wallet {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+
+  .modal-body .wallet-header {
+    text-align: center;
+    font-family: 'Raleway',sans-serif,serif;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .modal-body .wallets .metamask-wallet a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal-body .wallets .metamask-wallet a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    padding: 12px 32px;
+    background-color: var(--button-primary-color);
+  }
+
+  .modal-body .wallets .metamask-wallet a img{
+    margin-right: 8px;
+  }
+
+  .modal-body .wallets .metamask-wallet a span:nth-child(2){
+    font-size: 1rem;
+    letter-spacing: -0.8px;
+    color: #f4f4f4;
+    margin-right: 8px;
+  }
+
+  .modal-body .wallets .metamask-wallet a .detect-wallet{
+    font-size: 0.8rem;
+    letter-spacing: -0.8px;
+    color: #f4f4f4;
+  }

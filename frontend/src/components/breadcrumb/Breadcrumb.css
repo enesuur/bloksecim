@@ -1,0 +1,38 @@
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-direction: flex-start;
+    font-size: 14px;
+    margin-bottom: 32px;
+    padding: 8px 12px !important;
+  }
+  
+  .breadcrumb-item {
+    display: flex;
+    align-items: center;
+    color:  #999;
+  }
+  
+  .breadcrumb-item span {
+    margin-right: 4px;
+  }
+  
+  .breadcrumb-separator {
+    color: gray;
+  }
+
+.breadcrumb-item:hover{
+    cursor: pointer;
+  }
+
+  .breadcrumb.container a{
+    color: gray;
+  }
+
+  .sitemap-header{
+    padding: 0 12px !important;
+    font-size: 1.05em;
+    letter-spacing: 1;
+    font-weight: 400;
+    text-decoration: underline !important;
+  }

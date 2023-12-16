@@ -1,0 +1,175 @@
+section {
+    margin-top: 108px;
+    margin-bottom: 108px;
+}
+
+section .hero  {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    column-gap: 32px;
+}
+
+section .hero article{
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    justify-content: flex-start;
+}
+
+section .hero article h1{
+    font-family: 'Raleway',sans-serif,serif;
+    line-height: 1;
+    letter-spacing: 4px;
+    font-size: 2.1rem;
+    text-align: left;
+    font-weight: 300;
+}
+
+section .hero article h2 {
+    font-family: 'Raleway',sans-serif,serif;
+    line-height: 1;
+    letter-spacing: -0.9px;
+    font-size: 2.2rem;
+    text-align: left;
+    font-weight: 400;
+    word-break: break;
+}
+
+section .hero article p {
+    font-family: 'Manrope',sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.67;
+}
+
+section .hero figure picture{
+    width: 100%;
+    height: auto;
+    vertical-align: center;
+}
+
+section .hero figure picture img{
+    width: 100%;
+    height: auto;
+    vertical-align: center;
+    border-radius: 8px;
+}
+
+section .features-header{
+    font-family: 'Raleway',sans-serif,serif;
+    line-height: 1;
+    letter-spacing: 4px;
+    font-size: 1.8rem;
+    text-align: center;
+    font-weight: 300;
+}
+
+section .features .card-container {
+    margin-top: 64px;
+    margin-bottom: 64px;
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    column-gap: 32px;
+}
+
+section .features figure{
+    width: 100%;
+    height:auto;
+}
+
+section .features figure picture{
+    width: 100%;
+    height: auto;
+    vertical-align: center;
+}
+
+section .features figure picture img{
+    width: 100%;
+    height: auto;
+    vertical-align: center;
+    border-radius: 8px;
+    transition: transform 0.2s ease-in-out;
+}
+
+section .features figure picture img:hover {
+    transform: scale(1.05);
+}
+
+section .features .card-container .card-item  {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+}
+
+section .features .card-container .card-item article h2 {
+    font-family: 'Manrope',sans-serif,serif;
+    font-size: 1.5rem;
+    line-height: 1.3;
+    font-weight: 400;
+    letter-spacing: 0.8px;
+    text-align: center;
+}
+
+section .features .card-container .card-item article p {
+    font-family: 'Manrope',sans-serif,serif;
+    font-size: 0.92rem;
+    line-height: 1.3;
+    font-weight: 400;
+    letter-spacing: 0.8px;
+    text-align: center;
+}
+
+@media (max-width:768px) {
+
+    section {
+        padding: 0;
+    }
+
+    section .hero  {
+        grid-template-columns: 1fr;
+        grid-template-areas: 'picture' 'article';
+    }
+
+    section .hero .hero-article {
+        grid-area: article;
+    }
+
+    section .hero article h1 {
+        font-weight: 500;
+    }
+
+    section .hero article h2 {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+    }
+    
+    section .hero figure {
+        grid-area: picture;
+    }
+
+    section .features .features-header {
+        text-align: center;
+        font-weight: 300;
+        letter-spacing: -0.8px;
+        font-size: 1.78rem;
+    }
+    section .features .card-container {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        display: grid;
+        grid-template-columns: 1;
+        row-gap: 48px;
+        grid-template-columns: 1fr;
+        grid-template-areas:'figure' 'article';
+    }
+
+    .hero article{
+        grid-area: article;
+    }
+
+    .hero figure {
+        grid-area: figure;
+    }
+}

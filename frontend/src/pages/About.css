@@ -1,0 +1,92 @@
+.about-title,
+.faq-title,
+.contact-title {
+    font-family: 'Raleway', sans-serif, serif;
+    font-size: 2.1rem;
+    line-height: 1.5;
+    font-weight: 300;
+    margin-bottom: 32px;
+}
+
+
+section .about article p {
+    font-family: 'Manrope', sans-serif, serif;
+    line-height: 2;
+    font-size: 0.95rem;
+    font-weight: 300;
+}
+
+
+section .contact form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-family: 'Manrope', sans-serif, serif;
+}
+
+
+section .contact form label {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    row-gap: 8px;
+    margin: 12px 0;
+}
+
+
+section .contact form label input,
+section .contact form label textarea {
+    width: 100%;
+    padding: 12px 8px;
+    border: 1px solid var(--font-primary-color);
+    border-radius: 4px;
+}
+
+
+section .contact form label textarea {
+    min-height: 128px;
+    max-height: 512px;
+}
+
+
+section .contact form button {
+    width: 100%;
+    padding: 12px 8px;
+    background-color: var(--font-primary-color);
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 8px;
+}
+
+@media (max-width: 768px) {
+    .about-title,
+    .faq-title,
+    .contact-title {
+        font-size: 1.8rem;
+    }
+
+    section .about article p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-title,
+    .faq-title,
+    .contact-title {
+        font-size: 1.6rem;
+    }
+
+    section .about article p {
+        font-size: 0.85rem;
+    }
+
+    section .contact form label textarea {
+        min-height: 96px;
+        max-height: 384px;
+    }
+}

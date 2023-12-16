@@ -1,0 +1,34 @@
+section .profile .wallet-connection-error {
+    font-family: 'Manrope', sans-serif, serif;
+    font-size: 1.2rem;
+    line-height: 1.3;
+    font-weight: 300;
+}
+
+section .profile .profile-header {
+    font-family: 'Raleway', sans-serif, serif;
+    font-size: 2.1rem;
+    line-height: 1.5;
+    font-weight: 300;
+    margin-bottom: 16px;
+}
+
+section .profile p {
+    margin: 32px 0;
+    font-family: 'Manrope', sans-serif, serif;
+    font-size: 0.99rem;
+    line-height: 1.3;
+    font-weight: 300;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    column-gap: 4px;
+}
+section .profile .btn-warning {
+    margin-left: auto;
+    background-color: #800000;
+    padding: 12px 16px;
+    border-radius: 8px;
+    color: #ffffff;
+    cursor: pointer;
+}
