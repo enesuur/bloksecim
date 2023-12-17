@@ -8,7 +8,7 @@ import {
 import { WalletContextProvider } from './context/WalletContext';
 import RootLayout from './layouts/RootLayout'
 import Home from './pages/Home';
-import Votes from './pages/Votes';
+import Proposals from './pages/Proposals';
 import GetPin from './pages/GetPin';
 import About from './pages/About';
 import Tokenomics from './pages/Tokenomics';
@@ -20,7 +20,7 @@ const router = createBrowserRouter(
     <Route path='/' element={<RootLayout />}>
       <Route index element={<Home />} />
       <Route path='/getpin' element={<GetPin />} />
-      <Route path='/votes' element={<Votes />} />
+      <Route path='/proposals' element={<Proposals />} />
       <Route path='/tokenomics' element={<Tokenomics />} />
       <Route path='/profile' element={<Profile />} />
       <Route path='/about' element={<About />} />

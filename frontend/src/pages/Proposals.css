@@ -1,4 +1,4 @@
-.votes-title {
+.proposals-title {
     font-family: 'Raleway', sans-serif;
     font-weight: 300;
     font-size: 2.1rem;
@@ -7,7 +7,7 @@
     margin:32px 0;
 }
 
-section .vote-card-container {
+section .proposal-card-container {
     display: grid;
     grid-template-columns: repeat(1, minmax(0, 1fr));
     height: 100%;
@@ -15,7 +15,7 @@ section .vote-card-container {
     gap: 64px;
 }
 
-section .vote-card-container .vote-card {
+section .proposal-card-container .proposal-card {
     max-width: 1024px;
     display: flex;
     column-gap: 24px;
@@ -27,7 +27,7 @@ section .vote-card-container .vote-card {
     border-radius: 8px;
 }
 
-section .vote-card-container .vote-card article {
+section .proposal-card-container .proposal-card article {
     position: relative;
     display: flex;
     flex: 1 0 60%;
@@ -37,28 +37,26 @@ section .vote-card-container .vote-card article {
     padding: 2px;
 }
 
-section .vote-card-container .vote-card article .vote-card-title {
+section .proposal-card-container .proposal-card article .proposal-card-title {
     font-size: 1.5rem;
     line-height: 1;
     font-family: 'Raleway', sans-serif;
 }
 
-section .vote-card-container .vote-card article .vote-card-info {
+section .proposal-card-container .proposal-card article .proposal-card-info {
     font-size: 0.85rem;
     line-height: 1.5;
     font-family: 'Manrope', sans-serif;
 }
 
-
-section .vote-card article .vote-card-footer {
+section .proposal-card article .proposal-card-footer {
     flex-direction: column;
     display: flex;
     row-gap: 12px;
     margin-top: auto;
 }
 
-
-section .vote-card-container .vote-card article .vote-duration {
+section .proposal-card-container .proposal-card article .proposal-duration {
     display: flex;
     justify-content: flex-end;
     column-gap: 4px;
@@ -67,7 +65,7 @@ section .vote-card-container .vote-card article .vote-duration {
     font-size: 0.78rem;
 }
 
-section .vote-card article .btn-primary {
+section .proposal-card article .btn-primary {
     cursor: pointer;
     padding: 12px 32px;
     font-size: 1rem;
@@ -75,16 +73,21 @@ section .vote-card article .btn-primary {
     background-color: var(--font-primary-color);
     color: #ffffff;
     font-family: 'Manrope',sans-serif,serif;
+    transition: background-color 0.3 ease-in-out;
 }
 
-section .vote-card-container .vote-card article .vote-duration svg {
+section .proposal-card article .btn-primary:hover {
+    background-color: var(--button-secondary-color);
+}
+
+section .proposal-card-container .proposal-card article .proposal-duration svg {
     width: 24px;
     height: 24px;
     stroke-width: 1;
 }
 
 
-section .vote-card figure {
+section .proposal-card figure {
     flex-basis: 40%;
     width: 100%;
     height: auto;
@@ -92,52 +95,50 @@ section .vote-card figure {
     border-radius: 8px;
 }
 
-section .vote-card figure picture {
+section .proposal-card figure picture {
     width: 100%;
     height: 100%;
 }
 
-section .vote-card figure picture img {
+section .proposal-card figure picture img {
     max-width: 100%;
     height: 100%;
     border-radius: 8px;
     object-fit: cover;
 }
 
-
-
 /* Responsive styles */
 @media screen and (max-width: 979px) {
-    section .vote-card-container {
+    section .proposal-card-container {
         grid-template-columns: repeat(1, minmax(0, 1fr));
     }
 
-    section .vote-card-container .vote-card {
+    section .proposal-card-container .proposal-card {
         display: flex;
     }
 
-    section .vote-card-container .vote-card {
+    section .proposal-card-container .proposal-card {
         display: flex;
     }
 }
 
 @media screen and (max-width: 768px) {
-    section .vote-card-container .vote-card{
+    section .proposal-card-container .proposal-card{
         display: flex;
         flex-direction: column;
         max-height: auto;
         height: auto;
         column-gap: 24px;
     }
-    section .vote-card-container .vote-card  {
+    section .proposal-card-container .proposal-card  {
         height: auto;
     }
-    section .vote-card-container .vote-card article .vote-card-title {
+    section .proposal-card-container .proposal-card article .proposal-card-title {
         margin: 24px 0;
         font-size: 1.7rem;
     }
 
-    section .vote-card-container .vote-card article .vote-card-info {
+    section .proposal-card-container .proposal-card article .proposal-card-info {
         font-size: 0.99rem;
     }
     section .vote-card figure picture {

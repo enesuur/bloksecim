@@ -56,7 +56,7 @@ export default function Navbar() {
                 </li>
 
                 <li onClick={handleMobileMenuClick}>
-                    <NavLink to={'/votes'}>Oylamalar</NavLink>
+                    <NavLink to={'/proposals'}>Önergeler</NavLink>
                 </li>
 
                 <li onClick={handleMobileMenuClick}>

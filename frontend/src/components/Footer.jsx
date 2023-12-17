@@ -26,7 +26,7 @@ export default function Footer() {
                         <p>© 2023-2024</p>
                     </div>
                     <div className='social-links-wrapper'>
-                        <h2>Social Links</h2>
+                        <h2>Sosyal Hesaplar</h2>
                         <div className='social-links'>
                             <a href='#'>
                                 <svg width='24' height='24' fill='none' stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' viewBox='0 0 24 24'>

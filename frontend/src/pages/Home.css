@@ -114,7 +114,8 @@ section .features .card-container .card-item article h2 {
 section .features .card-container .card-item article p {
     font-family: 'Manrope',sans-serif,serif;
     font-size: 0.92rem;
-    line-height: 1.3;
+    line-height: 1.5;
+    margin: 24px 0;
     font-weight: 400;
     letter-spacing: 0.8px;
     text-align: center;
