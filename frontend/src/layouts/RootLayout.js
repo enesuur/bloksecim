@@ -8,12 +8,12 @@ export default function RootLayout() {
     return (
         <div className='root-layout'>
             <header className='container-fluid'>
-                <Navbar/>
+                <Navbar />
             </header>
             <main>
                 <Outlet />
             </main>
-            <Footer/>
+            <Footer />
         </div>
     )
 };

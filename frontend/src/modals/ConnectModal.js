@@ -1,36 +1,50 @@
-import { ethers } from 'ethers';
-import { useContext, useState, useEffect} from 'react';
-import WalletContext from '../context/WalletContext';
+import { useContext, useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import WalletContext from '../context/WalletContext';
 import MetamaskIcon from '../img/metamask.png';
 import './ConnectModal.css';
+
 export default function ConnectModal({ isModalOpen, setIsModalOpen }) {
     const [isWalletExist, setIsWalletExist] = useState(null);
     const walletContext = useContext(WalletContext);
     const navigate = useNavigate();
 
+    const modalRef = useRef(null);
 
-    function handleOnClick(){
+    function handleOnClick() {
         walletContext.connectWalletHandler();
         navigateProfile();
         setIsModalOpen(false);
-    }
+    };
+
     function handleModalClick() {
         setIsModalOpen(false);
+    }
+
+    function handleOutsideClick(event) {
+        if (modalRef.current && !modalRef.current.contains(event.target) && isModalOpen) {
+            setIsModalOpen(false);
+        };
     };
 
     useEffect(() => {
         setIsWalletExist(window.ethereum ? true : false);
-    }, []);
+        document.addEventListener('mousedown', handleOutsideClick);
+
+        return () => {
+            document.removeEventListener('mousedown', handleOutsideClick);
+        };
+    }, [isModalOpen]);
 
     function navigateProfile() {
-        if(walletContext.isWalletConnected) {
+        if (walletContext.isWalletConnected) {
             navigate('/profile');
-        };
-    };
+        }
+    }
+
     return (
         <div className={`modal-overlay ${isModalOpen ? 'open' : ''}`}>
-            <div className='modal-content'>
+            <div className='modal-content' ref={modalRef}>
                 <div className='modal-header'>
                     <p onClick={handleModalClick}>X</p>
                 </div>
@@ -40,12 +54,12 @@ export default function ConnectModal({ isModalOpen, setIsModalOpen }) {
                         <div className='metamask-wallet'>
                             <a href='#' onClick={handleOnClick}>
                                 <img src={MetamaskIcon} alt='metamask-icon' loading='lazy' width={32} height={32} />
-                                <span>Connect via Metamask </span>
+                                <span>Metamask ile bağlan</span>
                                 <span className='detect-wallet'>{isWalletExist === true ? '(Mevcut)' : 'Mevcut Değil'}</span>
                             </a>
                         </div>
                     </div>
-                    {useContext.errorMessage && <p style={{ color: 'red' }}>{useContext.errorMessage}</p>}
+                    {walletContext.errorMessage && <p style={{ color: 'red' }}>{walletContext.errorMessage}</p>}
                 </div>
             </div>
         </div>

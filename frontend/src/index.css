@@ -34,6 +34,8 @@ html {
   --button-primary-color:#1a1715;
   --button-secondary-color:#2b2826;
   --font-paragraph-color:#4d5054;
+  --white:#ffffff;
+  --red:#800000;
 }
 
 
@@ -99,8 +101,8 @@ object {
 }
 
 section {
-  margin-top: 108px;
-  margin-bottom: 108px;
+  margin-top: 144px;
+  margin-bottom: 144px;
 }
 
 img,

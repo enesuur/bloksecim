@@ -38,8 +38,9 @@ section .hero article h2 {
 section .hero article p {
     font-family: 'Manrope',sans-serif;
     font-size: 0.95rem;
+    margin-top: 32px;
     font-weight: 400;
-    line-height: 1.67;
+    line-height: 1.9;
 }
 
 section .hero figure picture{

@@ -34,7 +34,7 @@ export default function Votes() {
                                 </p>
                                 <p className='vote-card-footer'>
                                     <span className='vote-duration'>
-                                        <svg width={24} height={24} fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24'>
+                                        <svg width={24} height={24} fill='none' stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' viewBox='0 0 24 24'>
                                             <rect width='18' height='18' x='3' y='4' rx='2' ry='2'></rect>
                                             <path d='M16 2v4'></path><path d='M8 2v4'></path><path d='M3 10h18'></path>
                                         </svg>
@@ -65,7 +65,7 @@ export default function Votes() {
                                 </p>
                                 <p className='vote-card-footer'>
                                     <span className='vote-duration'>
-                                        <svg width={24} height={24} fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24'>
+                                        <svg width={24} height={24} fill='none' stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' viewBox='0 0 24 24'>
                                             <rect width='18' height='18' x='3' y='4' rx='2' ry='2'></rect>
                                             <path d='M16 2v4'></path><path d='M8 2v4'></path><path d='M3 10h18'></path>
                                         </svg>

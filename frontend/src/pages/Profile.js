@@ -1,9 +1,13 @@
-import WalletContext from '../context/WalletContext';
 import { useContext } from 'react';
+import WalletContext from '../context/WalletContext';
 import './Profile.css';
-export default function Profiler() {
+export default function Profile() {
     const walletContext = useContext(WalletContext);
-    console.log(walletContext);
+
+    function handleSignout(event){
+        event.preventDefault();
+        walletContext.disconnectWalletHandler();
+    };
     return (
         <section>
             <div className='profile container'>
@@ -12,7 +16,7 @@ export default function Profiler() {
                 )}
                 {(walletContext.defaultAccount !== null) && (
                     <>
-                        <h2 className='profile-header'>Profile</h2>
+                        <h2 className='profile-header'>Profil</h2>
                         <hr />
                         <p>
                             <svg width='24' height='24' fill='none' stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth='1.5' viewBox='0 0 24 24'>
@@ -21,7 +25,6 @@ export default function Profiler() {
                                 <path d='M18 7V5.602a2 2 0 0 0-2.515-1.933l-11 2.934A2 2 0 0 0 3 8.536v.463'></path>
                             </svg>
                             <span>Wallet Address: {walletContext.defaultAccount}</span>
-                            {console.log(walletContext.defaultAccount)}
                         </p>
                         <p>
                             <svg width='24' height='24' fill='none' stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' viewBox='0 0 24 24'>
@@ -30,7 +33,7 @@ export default function Profiler() {
                             </svg>
                             <span>Balance: {walletContext.accountBalance}</span>
                         </p>
-                        <button className='btn-warning'>Cüzdandan Çıkış yap</button>
+                        <button className='btn-warning' onClick={handleSignout}>Cüzdandan Çıkış yap</button>
                     </>
                 )}
             </div>

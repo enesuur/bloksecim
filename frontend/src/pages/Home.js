@@ -34,7 +34,7 @@ export default function Home() {
             <section>
                 <div className='features container'>
                     <h2 className='features-header'>
-                        Neden BlockSeçim ?
+                        Neden BlokSeçim ?
                     </h2>
                     <div className='card-container'>
                         <div className='card-item'>

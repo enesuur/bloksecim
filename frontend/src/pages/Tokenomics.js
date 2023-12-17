@@ -1,6 +1,17 @@
+import { Navigate, useNavigate } from 'react-router-dom';
 import TokenomicsBanner from '../img/tokenomics-banner.jpg';
 import './Tokenomics.css';
 export default function Tokenomics() {
+    const navigate = useNavigate();
+    
+    function handleAllocMartians(){
+        navigate('/token/martians');
+    };
+
+    function handleAllocXyz(){
+        navigate('/token/xyz');
+    };
+    
     return (
         <>
             <section>
@@ -19,7 +30,7 @@ export default function Tokenomics() {
             </section>
             <hr className='container' />
             <section>
-                <div className='tokenomics-table container'>
+                <div className='tokenomics-table container' id={'tokenomics-table'}>
                     <h2 className='tokenomics-allocation-header'>Token Allokasyon Planı</h2>
                     <table className='token-allocation-table'>
                         <thead>
@@ -34,14 +45,14 @@ export default function Tokenomics() {
                                 <td>Mars Ülkesi</td>
                                 <td>100%</td>
                                 <td>
-                                    <button className='btn-secondary'>Token Tahsis Et</button>
+                                    <button className='btn-secondary' onClick={handleAllocMartians}>Token Tahsis Et</button>
                                 </td>
                             </tr>
                             <tr>
                                 <td>XYZ Oyun Şirketi</td>
                                 <td>100%</td>
                                 <td>
-                                    <button className='btn-secondary'>Token Tahsis Et</button>
+                                    <button className='btn-secondary' onClick={handleAllocXyz}>Token Tahsis Et</button>
                                 </td>
                             </tr>
                         </tbody>

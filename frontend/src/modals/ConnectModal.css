@@ -8,6 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 9999;
   }
   
   .modal-content {
@@ -80,12 +81,12 @@
   .modal-body .wallets .metamask-wallet a span:nth-child(2){
     font-size: 1rem;
     letter-spacing: -0.8px;
-    color: #f4f4f4;
+    color: var(--white);
     margin-right: 8px;
   }
 
   .modal-body .wallets .metamask-wallet a .detect-wallet{
-    font-size: 0.8rem;
+    font-size: 1rem;
     letter-spacing: -0.8px;
-    color: #f4f4f4;
+    color: var(--white);
   }

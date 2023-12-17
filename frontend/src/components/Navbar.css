@@ -1,4 +1,5 @@
 nav {
+    z-index: 999;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -11,9 +12,22 @@ nav .nav-banner {
     letter-spacing: 2px;
     font-weight: 300;
     text-align: left;
+    display: flex;
+    align-items: center;
+    column-gap: 4px;
 }
 
-nav ul {
+nav .nav-banner svg{
+    fill: currentColor;
+    overflow: hidden;
+    vertical-align: middle;
+    width: 32px;
+    height: 32px;
+    stroke-width: 1px;
+    stroke-linecap: 1px;
+}
+
+nav .nav-links {
     display: flex;
     column-gap: 24px;
     justify-content: space-between;
@@ -34,14 +48,16 @@ nav .nav-links li a {
     color: var(--font-primary-color);
 }
 
-nav ul li:hover a {
-    text-decoration: underline;
+nav .nav-links li:hover a {
+    text-decoration-color: var(--font-paragraph-color);
+    text-underline-offset: 4px;
+    text-decoration:underline;
 }
 
-nav ul .connect-wallet {
+nav .nav-links .connect-wallet {
     cursor: pointer;
     background-color: var(--button-primary-color);
-    color: white;
+    color: var(--white);
     border-radius: 8px;
     padding: 12px;
     border-bottom: 0;
@@ -58,6 +74,7 @@ nav ul .connect-wallet:hover {
 
 @media (max-width: 768px) {
     nav .nav-links {
+
         display: none;
         flex-direction: column;
         position: absolute;
@@ -83,5 +100,6 @@ nav ul .connect-wallet:hover {
 
     .hamburger-icon {
         display: block;
+        font-size: 1.5rem;
     }
 }

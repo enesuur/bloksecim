@@ -1,5 +1,5 @@
 footer {
-    font-style: 'Raleway',sans-serif,serif;
+    font-family: 'Raleway', sans-serif, serif;
     margin-top: 108px;
     padding: 32px;
     height: auto;
@@ -14,10 +14,9 @@ footer nav {
     align-items: flex-start;
     row-gap: 64px;
     justify-content: space-between;
-
 }
 
-footer nav ul {
+footer nav .site-navigation {
     display: flex;
     column-gap: 36px;
     justify-content: center;
@@ -46,6 +45,7 @@ footer nav div:first-child {
 .footer-subtitle {
     font-size: 0.825rem;
     line-height: 1;
+    text-align: center;
 }
 
 footer nav ul li:first-child {
@@ -63,7 +63,7 @@ footer nav .social-links-wrapper {
     row-gap: 8px;
 }
 
-footer nav .social-links-wrapper h2:first-child {
+footer nav .social-links-wrapper h2 {
     font-size: 1rem;
     color: #fff;
     letter-spacing: 1px;
@@ -86,7 +86,8 @@ footer nav .social-links-wrapper .social-links a svg {
         row-gap: 24px;
     }
 
-    footer nav ul {
+    footer nav ul,
+    footer nav .footer-aside {
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -96,13 +97,5 @@ footer nav .social-links-wrapper .social-links a svg {
     footer nav div:first-child {
         margin-bottom: 16px;
         align-items: center;
-    }
-    footer nav .footer-aside  {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    .footer-subtitle {
-        text-align: center;
     }
 }

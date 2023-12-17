@@ -1,11 +1,11 @@
 
 
 import { Link, NavLink } from 'react-router-dom';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import WalletContext from '../context/WalletContext';
 import ConnectModal from '../modals/ConnectModal';
+import Logo from './Logo';
 import './Navbar.css';
-import { useEffect } from 'react';
 export default function Navbar() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -14,25 +14,41 @@ export default function Navbar() {
 
     function handleModalClick(event) {
         event.preventDefault();
+        if (walletContext.defaultAccount) {
+            setIsModalOpen(false)
+            return
+        };
         setIsModalOpen(!isModalOpen);
         setIsMobileMenuOpen(!isMobileMenuOpen);
-
     };
 
     function handleMobileMenuClick() {
         setIsMobileMenuOpen(!isMobileMenuOpen);
-    }
+    };
 
+    // Clicking outside of the navbar will close mobile navbar.
+    useEffect(() => {
+        const handleOutsideClick = (event) => {
+            if (isMobileMenuOpen && !event.target.closest('.container')) {
+                setIsMobileMenuOpen(false);
+            };
+        };
+        document.addEventListener('click', handleOutsideClick);
+        return () => {
+            document.removeEventListener('click', handleOutsideClick);
+        };
+    }, [isMobileMenuOpen]);
 
     return (
         <nav className='container'>
             <div className='nav-header'>
                 <Link to={'/'} className='nav-banner'>
-                    BlockSeçim ₿
+                    BlokSeçim
+                    <Logo/>
                 </Link>
-                <div className='hamburger-icon' onClick={handleMobileMenuClick}>
+                <span className='hamburger-icon' onClick={handleMobileMenuClick}>
                     &#9776;
-                </div>
+                </span>
             </div>
             <ul className={`nav-links ${isMobileMenuOpen ? 'show-menu' : ''}`}>
                 <li onClick={handleMobileMenuClick}>
@@ -57,6 +73,5 @@ export default function Navbar() {
             </ul>
             {isModalOpen && (<ConnectModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />)}
         </nav>
-
     )
 };

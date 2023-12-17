@@ -13,6 +13,7 @@ import GetPin from './pages/GetPin';
 import About from './pages/About';
 import Tokenomics from './pages/Tokenomics';
 import Profile from './pages/Profile';
+import Token from './pages/Token';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,9 +21,13 @@ const router = createBrowserRouter(
       <Route index element={<Home />} />
       <Route path='/getpin' element={<GetPin />} />
       <Route path='/votes' element={<Votes />} />
-      <Route path='/tokenomics' element={<Tokenomics />}/>
-      <Route path='/profile' element={<Profile />}/>
+      <Route path='/tokenomics' element={<Tokenomics />} />
+      <Route path='/profile' element={<Profile />} />
       <Route path='/about' element={<About />} />
+      <Route path='/token' element={<Token />}>
+        <Route path='martians'/>
+        <Route path='xyz'/>
+      </Route>
     </Route>
   )
 );
@@ -30,7 +35,7 @@ const router = createBrowserRouter(
 export default function App() {
   return (
     <WalletContextProvider>
-      <RouterProvider router={router}/>
+      <RouterProvider router={router} />
     </WalletContextProvider>
   );
 };

@@ -5,23 +5,23 @@ export default function Footer() {
         <footer>
             <nav className='container'>
                 <ul className='site-navigation'>
-                    <li>Site Navigation</li>
+                    <li>Site Navigasyonu</li>
                     <li>
-                        <Link to={'/'}>Home</Link>
+                        <Link to={'/'}>Anasayfa</Link>
                     </li>
                     <li>
-                        <Link to={'/'}>Collaborations</Link>
+                        <Link to={'/tokenomics'}>Token Al</Link>
                     </li>
                     <li>
-                        <Link to={'/getpin'}>GetPin</Link>
+                        <Link to={'/getpin'}>Pin Al</Link>
                     </li>
                     <li>
-                        <Link to={'/about'}>About</Link>
+                        <Link to={'/about'}>Hakkımızda</Link>
                     </li>
                 </ul>
                 <div className='footer-aside'>
                     <div className='footer-info'>
-                        <h2 className='footer-title'>BlockSeçim</h2>
+                        <h2 className='footer-title'>BlokSeçim</h2>
                         <p className='footer-subtitle'>Oto-konsensüs Katılım Blok Zinciri Oy Sistemi</p>
                         <p>© 2023-2024</p>
                     </div>
