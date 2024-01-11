@@ -3,17 +3,18 @@
 import './Proposals.css';
 import Breadcrumb from '../components/breadcrumb/Breadcrumb';
 import GameCompanyImg from '../img/gamecompany.jpg';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 export default function Proposals() {
     const location = useLocation();
     const paths = location.pathname.split('/').filter((path) => path !== '');
+    const navigate = useNavigate();
 
     function handleVoteMartians(){
-        
+        navigate('/proposals/martians')
     };
 
     function handleVoteXyz(){
-
+        navigate('/proposals/xyz')
     };
     return (
         <>
@@ -31,7 +32,7 @@ export default function Proposals() {
                                 </picture>
                             </figure>
                             <article>
-                                <h2 className='proposal-card-title'>A şirketindeki B üründe güncelleştirmeye gidilecek</h2>
+                                <h2 className='proposal-card-title'>Xyz</h2>
                                 <p className='proposal-card-info'>
                                     . The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
                                     The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
@@ -62,7 +63,7 @@ export default function Proposals() {
                                 </picture>
                             </figure>
                             <article>
-                                <h2 className='proposal-card-title'>A şirketindeki B üründe güncelleştirmeye gidilecek</h2>
+                                <h2 className='proposal-card-title'>Martians</h2>
                                 <p className='proposal-card-info'>
                                     . The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
                                     The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.

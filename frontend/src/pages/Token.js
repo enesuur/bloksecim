@@ -1,65 +1,122 @@
-import { useLocation } from 'react-router-dom';
-import { useState } from 'react';
+
+import { useEffect, useState } from 'react';
+import erc20abi from '../ABI/TokenABI.json';
+import Web3 from "web3";
 import './Token.css';
+
 export default function Token() {
-    const [formAction, setFormAction] = useState(null);
     const [message, setMessage] = useState(true);
     const [showFeedback, setShowFeedback] = useState(false);
-    const [testState, setTestState] = useState(false);
-    const location = useLocation();
-    const path = location.pathname.split('/').filter((path) => path !== '');
+    const [requestState, setRequestState] = useState(false);
+    const [verifyPinStatus, setVerifyPinStatus] = useState(false);
+    const [inpPin, setInPin] = useState('');
+    const [warningMessage, setWarningMessage] = useState(null);
+    const [web3, setWeb3] = useState(null);
+    const [contract, setContract] = useState(null);
+    const [account, setAccount] = useState(null);
 
-    function handlePinVerify(event) {
+    useEffect(() => {
+        async function initWeb3() {
+            if (window.ethereum) {
+                try {
+                    await window.ethereum.enable();
+                    const web3Instance = new Web3(window.ethereum);
+                    setWeb3(web3Instance);
+                    const accounts = await web3Instance.eth.getAccounts();
+                    setAccount(accounts[0]);
+
+                    const contractAddress = '0x61d32edb235c5202b7a007815c2e36980d1cd1e1';
+                    const contractAbi = erc20abi;
+
+                    const tokenContract = new web3Instance.eth.Contract(contractAbi, contractAddress);
+                    setContract(tokenContract);
+                } catch (error) {
+                    console.error("Kullanıcı izin vermedi: ", error);
+                }
+            }
+        };
+        initWeb3();
+    }, []);
+
+    async function handleTokenRequest(event) {
         event.preventDefault();
-        // This part of code will check wheter the PIN is correct from API endpoint.
-        setShowFeedback(true);
+        setRequestState(true);
+        try {
+            const recipientAddress = `${account}`;
+            const amount = web3.utils.toWei('100', 'ether');
+            await contract.methods.mint(account, amount).send({ from: account });
+            console.log('Transfer başarılı');
+        } catch (error) {
+            console.error('Transfer hatası:', error);
+        }
     };
 
-    function handleTokenRequest(event) {
+    const testPins = [
+        {
+            pin: 'a7P5oxL7',
+            organization: 'Martian Goverment'
+        },
+        {
+            pin: 'buwbkBy1',
+            organization: 'Martian Goverment'
+        },
+        {
+            pin: 'a7P5oxL7',
+            organization: 'Martian Goverment'
+        },
+        {
+            pin: 'buwbkBy1',
+            organization: 'Martian Goverment'
+        }
+    ];
+
+    function verifyPin(event) {
         event.preventDefault();
-        // This code block will interact with blockchain for token request
-        setTestState(true);
+        const isPinCorrect = testPins.some(testPin => testPin.pin === inpPin);
+        setVerifyPinStatus(isPinCorrect);
+        if (!isPinCorrect) {
+            setWarningMessage('Hatalı veya eksik Pin kodu!')
+        } else {
+            setWarningMessage(null);
+        }
     };
 
     return (
         <>
             <section>
                 <div className='token container'>
-                    <h2 className='token-header'>
-                        {path[1] === 'xyz' && (
-                            'XYZ Game Company Allocation'
-                        )}
-                        {path[1] === 'martians' && (
-                            'Martian Citizen Allocation'
-                        )}
-                    </h2>
+                    <h2 className='token-header'>Token Talebi için lütfen pininizi girin.</h2>
                     <form action='#'>
                         <input
                             type='text'
                             placeholder='Insert your PIN for token allocation.'
+                            value={inpPin}
+                            onChange={(e) => setInPin(e.target.value)}
                         />
-                        <button className='btn-primary' onClick={handlePinVerify}>Gönder</button>
+                        <button className='btn-primary' onClick={verifyPin}>Gönder</button>
                     </form>
                     <div className={`feedback-token-request ${showFeedback ? 'display-block' : ''}`}>
-                        {message === true && (
+                        {verifyPinStatus === true && (
                             <>
-                                <p className='text-succes' style={{ color: 'green' }}>Pin Doğrulandı!</p>
-                                <button 
-                                onClick={handleTokenRequest}
+                                <p className='text-succes' style={{ color: 'green' }}>
+                                    Pin Doğrulandı!
+                                </p>
+                                <button
+                                    onClick={handleTokenRequest}
                                 >Tokenlerini al.</button>
-                                { testState && (
-                                    <p className='text-succes'>Token Gönderimi yapıldı.Lütfen cüzdanınızı kontrol ediniz.</p>
+                                {requestState && (
+                                    <p className='text-succes'>Token Gönderimi yapıldı. Lütfen cüzdanınızı kontrol ediniz.</p>
                                 )}
                             </>
                         )}
-                        {message === false && (
+                        {!verifyPinStatus && (
                             <>
-                                <p className='text-fail' style={{ color: 'orangered' }}>Hatalı veya eksik pin.Lütfen tekrar deneyiniz!</p>
+                                <p className='text-fail' style={{ color: 'orangered' }}>{warningMessage}</p>
                             </>
                         )}
                     </div>
                 </div>
             </section>
         </>
-    )
-};
+    );
+}

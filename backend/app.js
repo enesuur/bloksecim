@@ -9,10 +9,10 @@ app.use(express.json())
 
 
 // database connection
-const dbURI = 'mongodb+srv://ninjaraidev:12345@cluster0.0id3au2.mongodb.net/node-auth';
-mongoose.connect(dbURI)
-  .then((result) => app.listen(5000))
-  .catch((err) => console.log(err));
+// const dbURI = 'mongodb+srv://ninjaraidev:12345@cluster0.0id3au2.mongodb.net/node-auth';
+// mongoose.connect(dbURI)
+//   .then((result) => app.listen(5000))
+//   .catch((err) => console.log(err));
 
 app.get('/', (req, res) => res.send('selam'));
 app.use(routes);

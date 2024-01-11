@@ -1,0 +1,94 @@
+section .martians {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    row-gap: 48px;
+}
+
+section .martians .check-pin-title {
+    font-family: 'Raleway',sans-serif,serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+section .martians .warning-msg {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--red);
+}
+
+section .martians .pin-box {
+    max-width: 600px;
+    display: flex;
+    justify-content: space-between;
+}
+
+section .martians .pin-box input[type='text'] {
+    width: 65%;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    padding: 12px;
+}
+
+section .martians .pin-box button {
+    width: 30%;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+section .martians .pin-box button:hover {
+    background-color: #333;
+}
+
+
+section .martians-proposal-title {
+    font-family: 'Raleway', sans-serif, serif;
+    font-weight: 300;
+    font-size: 1.7rem;
+    line-height: 1.5;
+}
+
+section .martians .proposal-card {
+    font-family: 'Manrope', sans-serif, serif;
+    background-color: #fff;
+    border: 1px solid var(--primary-color);
+    padding: 32px 24px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+}
+
+section .martians .proposal-card h2 {
+    color: var(--primary-font-color);
+}
+
+section .martians .proposal-card p {
+    color: #666;
+}
+
+section .martians input[type='radio'] {
+    margin-right: 5px;
+}
+
+
+section .martians form .btn-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 16px;
+}
+
+section .martians form .btn-primary:hover {
+    background-color: #333;
+}

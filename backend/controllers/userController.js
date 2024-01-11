@@ -1,7 +1,6 @@
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
 
-
 module.exports.user_post = async (req, res) => {
   const { username, key } = req.body;
 

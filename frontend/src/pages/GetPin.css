@@ -77,8 +77,9 @@ section .pin-req form button{
   margin-top: 32px;
   display: inline-block;
   font-family: 'Manrope',sans-serif,serif;
+  padding: 12px;
   font-size: 1.2rem;
-  line-height: 1;
+  line-height: 1.5;
   background-color: yellow;
 }
 

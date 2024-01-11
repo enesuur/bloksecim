@@ -1,5 +1,4 @@
 const Citizen = require('../models/Citizen');
-import generateCitizen from '../generateCitizen'
 const bcrypt = require('bcrypt');
 
 
