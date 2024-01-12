@@ -25,7 +25,7 @@ export default function Token() {
                     const accounts = await web3Instance.eth.getAccounts();
                     setAccount(accounts[0]);
 
-                    const contractAddress = '0x61d32edb235c5202b7a007815c2e36980d1cd1e1';
+                    const contractAddress = '0xdb506e57d4CdeC2A805DA56fc81d8750e635e0A4';
                     const contractAbi = erc20abi;
 
                     const tokenContract = new web3Instance.eth.Contract(contractAbi, contractAddress);

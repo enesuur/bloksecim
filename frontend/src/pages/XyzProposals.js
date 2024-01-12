@@ -1,4 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import erc20abi from '../ABI/TokenABI.json';
+import daoabi from '../ABI/DaoABI.json';
+import Web3 from 'web3';
 import './XyzProposals.css';
 
 export default function XyzProposals() {
@@ -6,6 +9,56 @@ export default function XyzProposals() {
   const [verifyPinStatus, setVerifyPinStatus] = useState(false);
   const [inpPin, setInPin] = useState('');
   const [warningMessage, setWarningMessage] = useState(null);
+  const [account, setAccount] = useState(null);
+  const [burnAmount, setBurnAmount] = useState(10);
+  const [web3, setWeb3] = useState(null);
+  const [tokenContract, setTokenContract] = useState(null);
+  const [daoContract, setDaoContract] = useState(null);
+  const TOKEN_CONTRACT = '0xdb506e57d4cdec2a805da56fc81d8750e635e0a4';
+  const DAO_CONTRACT = '0x2f2d19c6aa5db4b456a6bbd8068021287816f8cb';
+
+  async function initializeWeb3() {
+    if (window.ethereum) {
+      const web3 = new Web3(window.ethereum);
+      setWeb3(web3);
+      const tokenContractProvider = new web3.eth.Contract(erc20abi, TOKEN_CONTRACT);
+      // const daoContractProvider = new web3.eth.Contract(daoabi, DAO_CONTRACT);
+      const accounts = await web3.eth.getAccounts();
+      setAccount(accounts[0]);
+      setTokenContract(tokenContractProvider);
+      // setDaoContract(daoContractProvider);
+    } else {
+      console.error('Ethereum tarayıcı uzantısı bulunamadı!');
+    }
+  };
+
+  async function burnFromTokens() {
+    if (!tokenContract || !web3) {
+      console.error('Contract veya Web3 başlatılmamış!');
+      return;
+    }
+
+    try {
+      await tokenContract.methods.burn(web3.utils.toWei(burnAmount, 'ether')).send({ from: account });
+      console.log(`${burnAmount} tokens burned from ${account}`);
+    } catch (error) {
+      console.error('Bir hata oluştu: ', error);
+    }
+  };
+
+  function handleVotingRequest(event){
+    event.preventDefault();
+    burnFromTokens();
+    console.log('xx')
+  };
+
+  function handleFormSubmit(event){
+    event.preventDefault();
+  }
+
+  useEffect(() => {
+    initializeWeb3();
+  }, []);
 
   function handleOptionChange(event) {
     const optionValue = event.target.value;
@@ -63,7 +116,7 @@ export default function XyzProposals() {
           {verifyPinStatus && (
             <>
               <h2 className='xyz-proposal-title'>Xyz Game Company Önergeler</h2>
-              <form className='xyz-form' onSubmit={'#'}>
+              <form className='xyz-form' onSubmit={handleFormSubmit}>
                 <article className='proposal-card'>
                   <h2>Önerge: 1</h2>
                   <p>Sallama önerge metni Sallama önerge metni
@@ -108,7 +161,7 @@ export default function XyzProposals() {
                     />
                     4. Seçenek
                   </label>
-                  <button className='btn-primary'>Oyu gönder</button>
+                  <button className='btn-primary' onClick={handleVotingRequest}>Oyu gönder</button>
 
                 </article>
               </form>
@@ -157,7 +210,7 @@ export default function XyzProposals() {
                     />
                     4. Seçenek
                   </label>
-                  <button className='btn-primary'>Oyu gönder</button>
+                  <button className='btn-primary' onClick={handleVotingRequest}>Oyu gönder</button>
                 </article>
               </form>
             </>

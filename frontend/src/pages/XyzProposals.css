@@ -17,6 +17,11 @@ section .xyz .warning-msg {
     color: var(--red);
 }
 
+section .xyz .xyz-proposal-title {
+    font-family: 'Raleway', sans-serif, serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+}
 section .xyz .pin-box {
     max-width: 600px;
     display: flex;
