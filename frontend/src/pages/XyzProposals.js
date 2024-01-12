@@ -22,11 +22,11 @@ export default function XyzProposals() {
       const web3 = new Web3(window.ethereum);
       setWeb3(web3);
       const tokenContractProvider = new web3.eth.Contract(erc20abi, TOKEN_CONTRACT);
-      // const daoContractProvider = new web3.eth.Contract(daoabi, DAO_CONTRACT);
+      const daoContractProvider = new web3.eth.Contract(daoabi, DAO_CONTRACT);
       const accounts = await web3.eth.getAccounts();
       setAccount(accounts[0]);
       setTokenContract(tokenContractProvider);
-      // setDaoContract(daoContractProvider);
+      setDaoContract(daoContractProvider);
     } else {
       console.error('Ethereum tarayıcı uzantısı bulunamadı!');
     }
@@ -46,9 +46,21 @@ export default function XyzProposals() {
     }
   };
 
+  async function handleVoting(){
+    // Bu kısmımda proposalın description option falan fetch edilecek.
+    // farklı bir sayfada create proposal hallet
+    try {
+      await daoContract.methods.burn(web3.utils.toWei(burnAmount, 'ether')).send({ from: account });
+      console.log(`${burnAmount} tokens burned from ${account}`);
+    } catch (error) {
+      console.error('Bir hata oluştu: ', error);
+    }
+  };
+
   function handleVotingRequest(event){
     event.preventDefault();
     burnFromTokens();
+
     console.log('xx')
   };
 
