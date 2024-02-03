@@ -51,8 +51,12 @@ export default function Navbar() {
                 </span>
             </div>
             <ul className={`nav-links ${isMobileMenuOpen ? 'show-menu' : ''}`}>
-                <li onClick={handleMobileMenuClick}>
+                {/* <li onClick={handleMobileMenuClick}>
                     <NavLink to={'/tokenomics'}>Token Al</NavLink>
+                </li> */}
+
+                <li onClick={handleMobileMenuClick}>
+                    <NavLink to={'/create'}>Önerge Oluştur</NavLink>
                 </li>
 
                 <li onClick={handleMobileMenuClick}>
@@ -60,7 +64,7 @@ export default function Navbar() {
                 </li>
 
                 <li onClick={handleMobileMenuClick}>
-                    <NavLink to={'/getpin'}>Pin Al</NavLink>
+                    <NavLink to={'/results'}>Sonuçlar</NavLink>
                 </li>
                 <li onClick={handleMobileMenuClick}>
                     <NavLink to={'/profile'}>Profilim</NavLink>

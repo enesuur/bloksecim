@@ -16,13 +16,19 @@ import Profile from './pages/Profile';
 import Token from './pages/Token';
 import MartianProposals from './pages/MartianProposals';
 import XyzProposals from './pages/XyzProposals';
+import CreateProposal from './pages/CreateProposal';
+import Voting from './pages/Voting';
+import Results from './pages/Results';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<RootLayout />}>
       <Route index element={<Home />} />
       <Route path='/getpin' element={<GetPin />} />
-      <Route path='/proposals' element={<Proposals />}/>
+      <Route path='/create' element={<CreateProposal/>}/>
+      <Route path='/voting' element={<Voting/>}/>
+      <Route path='/results' element={<Results/>}/>
+      <Route path='/proposals' element={<Voting />}/>
       <Route path='/proposals/martians' element={<MartianProposals/>}/>
       <Route path='/proposals/xyz' element={<XyzProposals/>}/>
       <Route path='/tokenomics' element={<Tokenomics />} />
