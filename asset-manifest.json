@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/bloksecim/static/css/main.44492ecf.css",
+    "main.js": "/bloksecim/static/js/main.bb94f49b.js",
+    "static/media/decentralized.jpg": "/bloksecim/static/media/decentralized.16c043a9d44a5af41d38.jpg",
+    "static/media/tokenomics-banner.jpg": "/bloksecim/static/media/tokenomics-banner.b2cdc7a805c8f4771de0.jpg",
+    "static/media/gamecompany.jpg": "/bloksecim/static/media/gamecompany.c348d19ef6e3a505bc6c.jpg",
+    "static/media/proposal.jpg": "/bloksecim/static/media/proposal.043100ecb9da2f378122.jpg",
+    "static/media/hero.jpg": "/bloksecim/static/media/hero.0883bda4d604d163cc76.jpg",
+    "static/media/democracy.jpg": "/bloksecim/static/media/democracy.812516a2d82cdd6b69d0.jpg",
+    "index.html": "/bloksecim/index.html",
+    "main.44492ecf.css.map": "/bloksecim/static/css/main.44492ecf.css.map",
+    "main.bb94f49b.js.map": "/bloksecim/static/js/main.bb94f49b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.44492ecf.css",
+    "static/js/main.bb94f49b.js"
+  ]
+}
